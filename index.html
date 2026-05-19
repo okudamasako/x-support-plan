@@ -172,6 +172,18 @@
     width: 100%;
     display: block;
   }
+
+  /* 【PC表示限定の調整】左右の画像の表示高さを統一し、下の説明ボックスの上端をきれいに揃えます */
+  @media (min-width: 769px) {
+    .post-img {
+      height: 520px; /* パソコン表示における左右の画像の高さを520pxに統一します */
+    }
+    .post-img img {
+      height: 100%;
+      object-fit: cover; /* 画像の比率を崩さずに、指定した高さ（520px）へ綺麗にトリミングして収めます */
+      object-position: top; /* トリミングする際、一番重要な画像上部（グラフやヘッダー部分）が隠れないように上端を基準にします */
+    }
+  }
   .post-caption {
     font-size: 11px;
     color: var(--ink-light);
