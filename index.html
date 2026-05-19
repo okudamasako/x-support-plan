@@ -176,12 +176,19 @@
   /* 【PC表示限定の調整】左右の画像の表示高さを統一し、下の説明ボックスの上端をきれいに揃えます */
   @media (min-width: 769px) {
     .post-img {
-      height: 520px; /* パソコン表示における左右の画像の高さを520pxに統一します */
+      height: 620px; /* パソコン表示時における左右の画像表示エリアの高さ（620px）を揃えます */
+      background-color: #fafafa; /* 画像の上下左右に余白が生まれた際に美しく馴染む、極めて上品な薄いグレーの背景色です */
+      display: flex;
+      align-items: center; /* 縦方向の中央に画像を配置します */
+      justify-content: center; /* 横方向の中央に画像を配置します */
     }
     .post-img img {
-      height: 100%;
-      object-fit: cover; /* 画像の比率を崩さずに、指定した高さ（520px）へ綺麗にトリミングして収めます */
-      object-position: top; /* トリミングする際、一番重要な画像上部（グラフやヘッダー部分）が隠れないように上端を基準にします */
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain; /* トリミング（切り抜き）を禁止し、画像全体が縮小されて完璧に見える表示（contain）を最優先します */
+      display: block;
     }
   }
   .post-caption {
